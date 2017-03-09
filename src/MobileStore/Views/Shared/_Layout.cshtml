@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />  
+    <title>MobileStore</title>
+  
+
+</head>
+<body>
+    
+    <div class="navbar navbar-inverse" role="navigation">
+        <a class="navbar-brand" href="#">MOBILE STORE</a>
+        <div id="categories" class="col-xs-3">
+
+            @await Component.InvokeAsync("NavigationMenu")
+            
+        </div>
+        <div class="pull-right">
+            <h4><a class="btn btn-sm btn-primary pull-right" asp-area="" asp-controller="Account" asp-action="Login">Admin Login</a></h4>
+            
+        </div>
+       
+        <div class="pull-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>  
+    </div>
+
+       
+              
+    <div class="row panel">
+        
+        <div class="col-xs-3">
+            <img id="corp-logo" src="~/lib/images/mobile.logo.png"
+                 data-align="right" style="width:320px;height:250px;vertical-align:middle;" />
+            <span data-role="view-title"></span>
+
+            </div>
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+
+
+        </div>
+  
+     
+</body>
+</html> 
